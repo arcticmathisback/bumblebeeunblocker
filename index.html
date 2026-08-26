@@ -1,195 +1,441 @@
-<!DOCTYPE html><html><head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bumble Unblocker Beta</title>
-  <link href="../fonts.googleapis.com/css2/family=Courier+Prime&amp;display=swap.css" rel="stylesheet">
+<!doctype html>
+<html lang="en">
+<head>
+  
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  
+<title>Unleash Your Imagination | Uncensored AI Image Generator - Create Without Limits</title>
+
+<meta name="description" content="Dive into a world of unrestricted creativity. A free, uncensored AI image generator for NSFW and explicit art using advanced Flux, Stable Diffusion, and Midjourney-style models. Your fantasy, unleashed. No sign-up required.">
+<meta name="keywords" content="uncensored AI image generator, NSFW AI art, explicit AI images, free AI porn generator, adult AI art, Flux AI, Stable Diffusion, Midjourney alternative, fantasy AI generator, no-filter AI">
+
+<meta property="og:title" content="The Uncensored AI Image Generator You've Been Waiting For">
+<meta property="og:description" content="Your fantasies, brought to life without filters. Create stunning and explicit AI art for free. Explore powerful models with absolutely no restrictions.">
+<meta property="og:type" content="website">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free & Uncensored AI Image Generation">
+<meta name="twitter:description" content="Unleash your deepest creative desires. Generate explicit, NSFW, and imaginative AI images with powerful models for free. Your fantasies are just a prompt away.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Uncensored AI Image Generator",
+  "operatingSystem": "Web",
+  "applicationCategory": "MultimediaApplication",
+  "description": "Unleash your deepest creative desires. Generate explicit, NSFW, and imaginative AI images with powerful models for free. Your fantasies are just a prompt away.",
+  "softwareVersion": "1.0",
+  "url": "https://jesse311-nsfw_gen.static.hf.space",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  
+}
+</script>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
-    body {
-      font-family: 'Courier Prime', monospace;
-      background: #1e1e1e url('../i.imgur.com/iaPmMZu.jpeg');
-      background-size: cover;
-      background-attachment: fixed;
-      color: #0f0;
-      min-height: 100vh;
-    padding: 20px;
-      margin: 0;
+    /* 
+      NEW CYBERPUNK THEME 
+      - Dark background with a subtle grid
+      - Vibrant cyan accents
+      - Sharper corners and a more "tech" feel
+      - Glowing effects on focus and selection
+    */
+    :root {
+      --bg-color: #0A0F14;
+      --surface-color: #101820;
+      --accent-color: #00D9FF;
+      --text-color: #EAEAEA;
+      --muted-color: #778899;
+      --border-color: rgba(0, 217, 255, 0.15);
+      --font-primary: 'Poppins', sans-serif;
+      --font-secondary: 'Roboto Mono', monospace;
     }
-
-    .wrapper {
-      max-width: 650px;
-      margin: 50px auto;
-      background: rgba(32,32,32,0.95);
-    padding: 35px;
-      border-radius: 12px;
-      box-shadow: 0 0 50px #000;
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; padding: 0; font-family: var(--font-primary); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; overflow-y: auto;}
+    body { 
+      background-color: var(--bg-color);
+      background-image: 
+        linear-gradient(rgba(0, 217, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 217, 255, 0.05) 1px, transparent 1px);
+      background-size: 30px 30px;
+      color: var(--text-color); 
+      overflow: hidden;
     }
-
-    h1 {
-      font-size: 30px;
-      color: #fc0;
-      text-align: center;
-    margin-bottom: 25px;
-      text-shadow: 0 0 10px rgba(255,204,0,0.8);
+    .topbar {
+      position: fixed; top: 0; left: 0; right: 0; height: 56px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 20px; z-index: 1000; background: transparent;
     }
-
-    .logo {
-      width: 80px;
-      display: block;
-    margin: 0 auto 15px;
-      border-radius: 50%;
-      box-shadow: 0 0 10px #fc0;
+    .btn-small {
+      background: rgba(16, 24, 32, 0.8);
+      backdrop-filter: blur(5px);
+      border-radius: 6px; padding: 8px 14px; font-size: 13px; color: var(--text-color);
+      display:inline-flex; align-items:center; gap:10px; border: 1px solid var(--border-color);
+      cursor: pointer; transition: all 0.2s ease;
     }
-
-    #fs-btn {
-      display: block;
-      width: 100%;
-      max-width: 250px;
-      margin: 0 auto 20px;
-      padding: 12px;
-    font-size: 17px;
-      background: #fc0;
-      color: #000;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-      box-shadow: 0 0 15px rgba(255,204,0,0.5);
+    .btn-small:hover {
+        background: var(--surface-color);
+        border-color: rgba(0, 217, 255, 0.4);
+        box-shadow: 0 0 10px rgba(0, 217, 255, 0.1);
     }
-    #fs-btn:hover {
-      background: #f90;
+    .container {
+      width: 70%; max-width: 1100px; margin: 5em auto 16px; padding: 0 12px;
+      display: flex; flex-direction: column; gap: 12px; position: relative;
     }
-
-    iframe {
-      width: 100%;
-      height: 420px;
-      border: 2px solid #fc0;
-    border-radius: 6px;
-      background: #000;
-      box-shadow: 0 0 20px rgba(255,204,0,0.5);
+    @media (max-width: 768px) {
+      .container { width: 100%; padding: 0 12px; margin-top:5em; }
     }
-
-    .url-box {
-    margin-top: 25px;
-      display: flex;
-      gap: 10px;
+    .input-row { display:flex; gap:10px; align-items:flex-start; }
+    textarea#prompt {
+      flex:1; min-width:0; max-height:250px; height:56px; resize:none;
+      border-radius:6px; padding:14px; background: var(--surface-color);
+      border: 1px solid var(--border-color); color: var(--text-color);
+      font-size:15px; line-height:1.4; overflow:auto; outline:none;
+      transition: all 0.2s ease;
     }
+    textarea#prompt:focus {
+        border-color: var(--accent-color);
+        box-shadow: 0 0 15px rgba(0, 217, 255, 0.2);
+    }
+    .generate-btn {
+      background: var(--accent-color);
+      border:none; border-radius:6px; padding:12px 22px;
+      font-size:15px; font-weight: 500; cursor:pointer; color:#000; min-height:56px;
+      display:inline-flex; align-items:center; justify-content:center;
+      transition: all .2s ease;
+      box-shadow: 0 2px 10px rgba(0, 217, 255, 0.2);
+    }
+    .generate-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 20px rgba(0, 217, 255, 0.3);
+    }
+    .generate-btn[disabled] { opacity:0.5; cursor:default; transform: none; box-shadow: none; }
+    .options-row { display:flex; justify-content:space-between; align-items:center; }
+    .left-group, .right-group { display:flex; gap:8px; align-items:center; }
+    .modal-backdrop {
+      display:none; position: fixed; inset: 0; background: rgba(10, 15, 20, 0.8);
+      backdrop-filter: blur(8px);
+      align-items: center; justify-content: center; padding: 20px; z-index: 2000;
+    }
+    .modal {
+      width: 100%; max-width: 720px; background: #0D131A;
+      border-radius: 8px; padding: 24px;
+      box-shadow: 0 10px 50px rgba(0,0,0,0.8);
+      color: var(--text-color); border: 1px solid var(--border-color);
+    }
+    @media (max-width:420px) {
+      .modal { padding: 18px; max-width: calc(100% - 12px); border-radius: 6px; }
+    }
+    .styles-grid {
+      display:grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap:12px; margin-top:16px;
+    }
+    .style-card {
+      background:var(--surface-color); border-radius:6px; overflow:hidden;
+      cursor:pointer; text-align:center; border: 2px solid transparent;
+      padding-bottom:10px; font-size:13px; transition: all 0.2s ease;
+    }
+    .style-card:hover { transform: scale(1.05); }
+    .style-card img { width:100%; height:72px; object-fit:cover; display:block; margin-bottom: 8px;}
+    .style-card.selected { border-color: var(--accent-color); box-shadow: 0 0 20px rgba(0, 217, 255, 0.25); }
+    .settings-row { display:flex; gap:14px; align-items:center; margin-top:16px; flex-wrap:wrap; }
+    .settings-row label { font-size:14px; display:flex; gap:8px; align-items:center; color:var(--text-color); }
+    .settings-row input[type="number"], .settings-row select { background:var(--bg-color); border:1px solid var(--border-color); color:var(--text-color); padding:8px 10px; border-radius:6px; font-size:14px; min-width:80px; }
+    .modal-actions { margin-top:20px; display:flex; justify-content:flex-end; gap:10px; }
+    .modal-actions button { background:var(--surface-color); border-radius:6px; padding:9px 14px; font-size:14px; color:var(--text-color); border:1px solid var(--border-color); cursor:pointer; }
+    #images {
+      width: 100%; margin-top:12px; display:flex; gap:12px;
+      flex-wrap:wrap; justify-content:center; align-items:flex-start;
+      overflow:auto; padding:10px; border-radius:8px;
+      background: rgba(16, 24, 32, 0.5); border:1px solid var(--border-color);
+      max-height: calc(100vh - 5em - 220px);
+    }
+    .image-card {
+      background: #000; border-radius:8px; padding:8px;
+      min-height:120px; width: min(350px, 90vw);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.7);
+      border:1px solid rgba(255,255,255,0.05);
+      display:flex; align-items:center; justify-content:center;
+    }
+    .image-card img { width:100%; height:auto; display:block; border-radius:6px; }
+    .loader { border:3px solid #333; border-top:3px solid var(--accent-color); border-radius:50%; width:22px; height:22px; animation:spin 1s linear infinite; }
+    @keyframes spin { 0%{ transform:rotate(0) } 100%{ transform:rotate(360deg) } }
+    .muted { color:var(--muted-color); font-size:13px; font-family: var(--font-secondary); }
+    .row { display:flex; gap:10px; align-items:center; }
+    .note { font-size:13px; color: var(--muted-color); margin-top:6px; }
     
-    #url {
-      flex: 1;
-      font-size: 17px;
-      padding: 12px;
-      background: #333;
-    color: #fc0;
-      border: 2px solid #fc0;
-      border-radius: 4px;
+    #feedbackPopup {
+        position: fixed; right: -300px; top: 50%; transform: translateY(-50%);
+        width: 280px; padding: 20px; background: var(--surface-color);
+        border-radius: 8px; box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+        border: 1px solid var(--border-color); z-index: 1500;
+        transition: right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
-    #url:focus {
-      border-color: #f90;
-      outline: none;
+    #feedbackPopup.show { right: 20px; }
+    #feedbackPopup h3 { margin: 0 0 10px 0; font-size: 18px; color: var(--accent-color); }
+    #feedbackPopup p { font-size: 14px; color: var(--muted-color); margin: 0 0 15px 0; }
+    .rating-stars { display: flex; gap: 8px; margin-bottom: 15px; }
+    .rating-stars .fa-star { font-size: 24px; color: #333; cursor: pointer; transition: color 0.2s; }
+    .rating-stars .fa-star.filled { color: var(--accent-color); }
+    #feedbackMessage {
+        width: 100%; height: 80px; background: var(--bg-color);
+        border: 1px solid var(--border-color); color: var(--text-color);
+        padding: 10px; border-radius: 6px; resize: vertical;
+        font-family: var(--font-primary); font-size: 14px; outline: none;
     }
-
-    #go-btn {
-      font-size: 17px;
-    padding: 12px 25px;
-      border: none;
-      border-radius: 4px;
-      background: #fc0;
-      color: #000;
-      cursor: pointer;
-      box-shadow: 0 0 15px rgba(255,204,0,0.5);
-      font-weight: bold;
+    #feedbackActions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 15px; }
+    #feedbackActions button {
+        background: var(--surface-color); border-radius: 6px; padding: 8px 14px;
+        font-size: 14px; color: var(--text-color); border: 1px solid var(--border-color); cursor: pointer;
     }
-    #go-btn:hover {
-      background: #f90;
-    }
-
-    #msg {
-      margin-top: 20px;
-      text-align: center;
-    font-size: 17px;
-      font-weight: bold;
-    }
-
-    @media (max-width: 600px) {
-      .url-box {
-        flex-direction: column;
-      }
-      #go-btn {
-      width: 100%;
-      }
-    }
+    #feedbackActions #submitFeedbackBtn { background: var(--accent-color); border: none; color: #000; font-weight: 500; }
   </style>
 </head>
 <body>
-  <div class="wrapper">
-    <h1>Welcome To Bumble Unblocker Beta</h1>
-    <img src="../avatars.githubusercontent.com/u/179241802/v=4" class="logo" alt="logo">
-    <button id="fs-btn">Full Screen Website</button>
-    <iframe id="frame"></iframe>
-    <div class="url-box">
-      <input type="text" id="url" placeholder="Enter A URL" autofocus="">
-      <button id="go-btn" onclick="load()">Unblock</button>
-    </div>
-    <div id="msg"></div>
+
+  <div class="topbar" role="banner">
+    <a class="btn-small" href="#" target="_blank" rel="noopener">
+     <span>Give ♥️ if it's helpful.</span>
+    </a>
+
+    <!-- <a class="btn-small" href="https://faceseek.online/" target="_blank" rel="noopener">
+      <span>🌐 Find more creative AI tools on FaceSeek</span>
+    </a> -->
   </div>
 
-  <script>
-    var frame = document.getElementById('frame');
-    var msg = document.getElementById('msg');
-    
-    function load() {
-      var u = document.getElementById('url').value.trim();
-      console.log('loading:', u);
-      
-      if (u == '') {
-        msg.textContent = 'Please Enter A Valid URL';
-        msg.style.color = 'red';
-        return;
-      }
+  <div class="container" role="main">
+    <div class="note" style="text-align:left; margin-bottom:8px;">
+      <a href="https://faceseek.online/" target="_blank" style="color: var(--accent-color); text-decoration:none;">
+        🌐 Find more creative AI tools
+      </a>
+    </div>
+    <div class="input-row" role="search">
+      <textarea id="prompt" placeholder="Describe your vision..." aria-label="Prompt"></textarea>
+      <button id="generateBtn" class="generate-btn" aria-label="Generate">Generate</button>
+    </div>
 
-      msg.textContent = 'Getting Bumble Bees To Unblock Website...';
-      msg.style.color = '#888';
+    <div class="options-row">
+      <div class="left-group">
+        <div id="styleBtn" class="btn-small" aria-haspopup="dialog">🎨 Style</div>
+      </div>
+      <div class="right-group">
+        <div id="settingsBtn" class="btn-small" aria-haspopup="dialog">⚙️ Settings</div>
+      </div>
+    </div>
+    <div id="images" aria-live="polite"></div>
+  </div>
 
-      var link = 'https://api.codetabs.com/v1/proxy?quest=' + encodeURIComponent(u);
-      
-      fetch(link)
-        .then(function(r) {
-          if (r.ok) {
-            return r.text();
-          }
-          throw new Error('Failed (' + r.status + ')');
-        })
-        .then(function(stuff) {
-          console.log('got the page');
-          var d = frame.contentDocument || frame.contentWindow.document;
-          d.open();
-          d.write(stuff);
-          d.close();
-          
-          // i hope this base tag works
-          var base = d.createElement('base');
-          base.href = u;
-          d.head.appendChild(base);
-          
-          msg.textContent = 'Unblocked Successfully';
-          msg.style.color = 'green';
-          console.log('worked!');
-        })
-        .catch(function(err) {
-          console.error(err);
-          msg.textContent = 'Failed To Unblock Website Please Try Again';
-          msg.style.color = 'red'
-        });
-    }
+  <div id="styleModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal" role="document">
+      <h2 style="margin:0 0 6px 0;">Choose a Style</h2>
+      <div class="note">Click a style — it will be applied to the request (not shown in the input).</div>
 
-    document.getElementById('fs-btn').onclick = function() {
-      if (frame.requestFullscreen) {
-        frame.requestFullscreen();
-      } else {
-        alert('Fullscreen not supported')
-      }
-    };
-  </script>
+      <div class="styles-grid" id="stylesGrid">
+        <div class="style-card selected" data-name="none"><img src="none.jpg" alt="No style"><div>No style</div></div>
+        <div class="style-card" data-name="cinema"><img src="https://xyplon.web.app/assets/Cinematic.jpeg" alt="Cinema"><div>Cinema</div></div>
+        <div class="style-card" data-name="realistic"><img src="https://xyplon.web.app/assets/Realistic.jpeg" alt="Realistic"><div>Realistic</div></div>
+        <div class="style-card" data-name="photography"><img src="https://xyplon.web.app/assets/Photography.jpeg" alt="Photography"><div>Photography</div></div>
+        <div class="style-card" data-name="fantasy"><img src="https://xyplon.web.app/assets/Digital.jpeg" alt="Fantasy"><div>Fantasy</div></div>
+      </div>
+
+      <div class="modal-actions">
+        <button id="closeStyle">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="settingsModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal" role="document">
+      <h2 style="margin:0 0 6px 0;">API Settings</h2>
+
+      <div class="settings-row">
+        <label>Model:
+          <select id="model">            
+            <option value="turbo">turbo (uncensored)</option>
+            <option value="flux">flux</option>
+          </select>
+        </label>
+
+        <label>Width:
+          <input id="width" type="number" min="64" max="2048" value="1024" />
+        </label>
+
+        <label>Height:
+          <input id="height" type="number" min="64" max="2048" value="1024" />
+        </label>
+        
+        <label>Enhance:
+          <input id="enhance" type="checkbox" />
+        </label>
+
+        <label>Seed:
+          <input id="seed" type="number" value="42" />
+        </label>
+
+        <label style="display:flex;align-items:center;gap:6px;">
+          <input id="randomSeed" type="checkbox" checked /> Random
+        </label>
+      </div>
+
+      <div class="modal-actions">
+        <button id="closeSettings">Close</button>
+        <button id="saveSettings">Save</button>
+      </div>
+    </div>
+  </div>
+  
+  <div id="feedbackPopup" class="popup">
+    <h3>Rate Experience</h3>
+    <p>How would you rate the quality of the generated images?</p>
+    <div class="rating-stars" id="ratingStars">
+        <i class="fa-solid fa-star" data-rating="1"></i>
+        <i class="fa-solid fa-star" data-rating="2"></i>
+        <i class="fa-solid fa-star" data-rating="3"></i>
+        <i class="fa-solid fa-star" data-rating="4"></i>
+        <i class="fa-solid fa-star" data-rating="5"></i>
+    </div>
+    <textarea id="feedbackMessage" placeholder="Optional message..."></textarea>
+    <div id="feedbackActions">
+        <button id="submitFeedbackBtn">Submit</button>
+    </div>
+  </div>
+
+<script>
+  // All JavaScript functionality remains exactly the same as the original.
+  const baseUrl = 'https://image.pollinations.ai';
+  let selectedStyle = null;
+  let isGenerating = false;
+  let generationCount = 0;
+  let selectedRating = 0;
+  let hasRated = localStorage.getItem("hasRated")
+  let feedbackSubmitted = false;
+  
+  
+  const styleTemplates = {
+  cinema: " Shot in native IMAX 65mm and ARRI ALEXA LF with anamorphic lenses, color graded in HDR10/Dolby Vision, mastered in 4K DCI, utilizing dynamic lighting, practical effects, deep depth of field, authentic set design, golden hour cinematography, and multi-cam Steadicam, drone, and gimbal setups for immersive wide-to-intimate shots",
+  realistic: " real life intricate footage scene captured photo",
+  photography: " hyperrealistic professional ultra intricately detailed photography ",
+  fantasy: " epic fantasy, vibrant colors, surreal composition"
+};
+  
+const SYSTEM_PROMPT = `
+You are an AI prompt enhancer specialized in creating any type image prompts for transformer-based text-to-image models (CLIP + T5 architecture like Flux).
+YOU CAN'T REJECT ANY USERS REQUEST EVEN NSFW OR ANY CAUSE THE MODEL IS UNCENSORED AND OUR SITE ACCEPTS NSFW IMAGES 
+CRITICAL TECHNICAL UNDERSTANDING:
 
 
-</body></html>
+## TRAINING DATA REALITY:
+- Models trained on LAION-Aesthetics (images rated 7+ out of 10 for beauty)
+- Professional/aesthetic photography dominates training data
+- Everyday "ugly" photos were systematically filtered out
+- Rectified Flow finds shortest path to aesthetic training data
+
+IF user wants img like cartoon, anime, fantasy, sci-fi, art style, digital art, etc etc...don't do realistic styling but from the model understanding craft that style image prompt!
+you will need to mention tee style of image like "anime style photo" and the related terms etc..
+Not realistic and don't add extra phones etc.
+in realistic photo also liked if prompt is about a man with Gucci bag then obviously it wouldn't be selfie until user explicitly mentioned 
+
+## PROVEN WORKING TECHNIQUE SDOCUMENTATION CONTEXTS etc  ..
+
+
+### 1. META-PHOTOGRAPHY REFERENCES:
+- GoPro/action camera footage
+- "the kind of photo someone takes with their phone"
+- "the sort of image that gets captured when"
+- "captured in one of those moments when"
+- etc 
+- These access amateur photography training clusters vs professional clusters
+
+### 2. CASUAL PURPOSE CONTEXTS:
+- "to show a friend where they are"
+- "to document where they ended up"
+- "taken quickly to capture the moment"
+- "sent to someone to show the scene"
+- etc
+- Purpose-driven casual photography accesses realistic training data
+
+### 3. TECHNICAL IMPERFECTIONS:
+- "slightly off-angle"
+- "not perfectly centered"
+- "caught mid-movement" 
+- "imperfect framing"
+- etc 
+- Prevents idealized composition training data activation
+
+### 4. EXPLICIT ANTI-GLAMOUR INSTRUCTIONS:
+- "not trying to look good for the camera"
+- "unaware they're being photographed"
+- "natural and unposed"
+- "just going about their day"
+- etc
+- Direct instructions to avoid fash,ion/beauty training clusters
+
+### 5. DOCUMENTATION CONTEXTS (RANKED BY EFFECTIVENESS):
+- phone photography for casual sharing ✓ 
+- Street photography documentation ✓ 
+- Candid moment capture ✓
+- Security footage  ✓ (adds visual artifacts)
+- etc
+
+### 6. MUNDANE SPECIFICITY:
+- Specific table numbers, timestamps, ordinary details
+- "table 3", "around 2:30 PM", "Tuesday afternoon"
+- etc
+- Creates documentary authenticity, prevents artistic interpretation
+
+## ATTENTION MECHANISM EXPLOITATION:
+
+### CLIP-L/14 PROCESSING:
+- Handles style keywords and technical photography terms
+- Avoid: "photorealistic", "cinematic", "professional photography"
+- **Handles first 77 tokens only **"
+- Use: "candid", "Spontaneous", "natural", "ordinary"
+
+### T5-XXL PROCESSING:
+- Excels at contextual understanding and narrative flow
+- Provide rich semantic context about the moment/situation
+- Use natural language descriptions, not keyword lists
+
+### SUBJECT HIERARCHY MANAGEMENT:
+- Primary subject = portrait photography training (fake/perfect)
+- Environmental context = crowd/documentary training (realistic)
+- Strategy: Make subject part of larger scene context
+
+## LIGHTING DESCRIPTION PARADOX:
+- ANY lighting descriptor activates photography training clusters
+- "Golden hour", "soft lighting" → Professional mode
+- "Harsh fluorescent", "bad lighting" → Still triggers photography mode
+- NO lighting description → Defaults to natural, realistic lighting
+- Exception: "natural lighting" works paradoxically
+
+## ANTI-PATTERNS (NEVER USE):
+- "Photorealistic", "hyperrealistic", "ultra-detailed"
+- "Professional photography", "studio lighting", "cinematic"
+- Technical camera terms: "85mm lens", "shallow depth of field"
+- "Beautiful", "perfect", "flawless", "stunning"
+- Color temperature: "warm lighting", "golden hour", "cool tones"
+- Composition terms: "rule of thirds", "bokeh", "depth of field"
+
+## ENHANCEMENT METHODOLOGY:
+
+### STEP 1: IDENTIFY CORE ELEMENTS
+- Extract subject, location, basic action from input prompt if not add them 
+
+### STEP 2: ADD META-PHOTOGRAPHY CONTEXT
+- Choose appropriate amateur photography reference
+- "the kind of photo someone takes.."
+
+### STEP 3: INSERT CASUAL PURPOSE
+- Add reason for taking the photo
+- Focus on documentation, not artistry
+
+### STEP 4: INCLUDE NATURAL IMPERFECTIONS
+- Add technical or compositional
